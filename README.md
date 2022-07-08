@@ -7,8 +7,11 @@ Alunos PAE: Lucas Diniz  e Sebastião Santos
 ## Grupo 1: 
 
 Adalton de Sena Almeida Filho - 12542435 
+
 Vinicius Soares Martins - 11794907
+
 Bernardo Rodrigues Tameirão Santos - 12733212
+
 
 ## 1. Aplicação
 Área: Entretenimento e organização pessoal.
