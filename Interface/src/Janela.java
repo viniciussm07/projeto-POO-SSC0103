@@ -14,7 +14,7 @@ public class Janela extends JFrame implements ActionListener{
 	public Janela(String titulo){
 		
 		super(titulo);
-		super.setSize(1920, 1080);
+		super.setSize(1080, 720);
 	    super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   
 	    
 	}
@@ -26,7 +26,7 @@ public class Janela extends JFrame implements ActionListener{
 	    JLabel label1 = new JLabel("Seja Bem-vindo");
 	    JLabel label2 = new JLabel("Gostaria de assistir algo?");
 	    JLabel espaco = new JLabel("                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ");
-	    JButton buttonOK = new JButton("Vamos lá!");
+	    JButton buttonOK = new JButton("Vamos la!");
 	    JButton buttonHome = new JButton("HOME");
 	    JButton buttonBack = new JButton("Voltar");
 	    
@@ -50,7 +50,7 @@ public class Janela extends JFrame implements ActionListener{
 	    buttonHome.addActionListener(this);
 	    buttonBack.addActionListener(this);
 	    
-	    //Conteúdo do meio.
+	    //Conteudo do meio.
 	    
 	    JPanel meio = new JPanel();
 	    JPanel meio1 = new JPanel();
@@ -130,23 +130,23 @@ public class Janela extends JFrame implements ActionListener{
 		JButton icon1 = new JButton(new ImageIcon(newImage));
 		//icon1.setBorder(BorderFactory.createEmptyBorder());
 		
-		buttonIcon = ImageIO.read(new File("src/Imagens/1984.jpg"));
+		buttonIcon = ImageIO.read(new File("./Imagens/./1984.jpg"));
 		newImage = buttonIcon.getScaledInstance(340, 500, Image.SCALE_DEFAULT);
 		JButton icon2 = new JButton(new ImageIcon(newImage));
 		
-		buttonIcon = ImageIO.read(new File("src/Imagens/Magia.jpg"));
+		buttonIcon = ImageIO.read(new File("./Imagens/./Magia.jpg"));
 		newImage = buttonIcon.getScaledInstance(340, 500, Image.SCALE_DEFAULT);
 		JButton icon3 = new JButton(new ImageIcon(newImage));
 		
-		buttonIcon = ImageIO.read(new File("src/Imagens/MegaMente.jpg"));
+		buttonIcon = ImageIO.read(new File("./Imagens/./MegaMente.jpg"));
 		newImage = buttonIcon.getScaledInstance(340, 500, Image.SCALE_DEFAULT);
 		JButton icon4 = new JButton(new ImageIcon(newImage));
 		
-		buttonIcon = ImageIO.read(new File("src/Imagens/Livros.jpg"));
+		buttonIcon = ImageIO.read(new File("./Imagens/./Livros.jpg"));
 		newImage = buttonIcon.getScaledInstance(340, 500, Image.SCALE_DEFAULT);
 		JButton icon5 = new JButton(new ImageIcon(newImage));
 		
-		buttonIcon = ImageIO.read(new File("src/Imagens/Livros.jpg"));
+		buttonIcon = ImageIO.read(new File("./Imagens/./Ultimato.jpg"));
 		newImage = buttonIcon.getScaledInstance(340, 500, Image.SCALE_DEFAULT);
 		JButton icon6 = new JButton(new ImageIcon(newImage));
 		
