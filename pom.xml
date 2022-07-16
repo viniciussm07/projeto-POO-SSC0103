@@ -20,6 +20,12 @@
 
   <dependencies>
     <dependency>
+      <groupId>com.github.holgerbrandl</groupId>
+      <artifactId>themoviedbapi</artifactId>
+      <version>1.12</version>
+    </dependency>
+
+    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.11</version>
