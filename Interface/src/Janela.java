@@ -14,7 +14,7 @@ public class Janela extends JFrame implements ActionListener{
 	public Janela(String titulo){
 		
 		super(titulo);
-		super.setSize(1080, 720);
+		super.setSize(1280,720);
 	    super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   
 	    
 	}
@@ -163,6 +163,7 @@ public class Janela extends JFrame implements ActionListener{
 		JScrollPane scrollVertical = new JScrollPane(middlePanel);
 		
 		scrollVertical.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		//scrollVertical.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		
 		jp.add(scrollVertical);
 		
