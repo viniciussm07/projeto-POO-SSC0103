@@ -206,16 +206,16 @@ public class Janela extends JFrame implements ActionListener{
 		String stringAvaliacao = " ";
 
 		JPanel middlePanel = new JPanel();
-		JLabel texto1 = new JLabel("Sinopse: " + stringSinopse + "\n" + "Avaliacao: " + stringAvaliacao + "\n");
-		//JLabel texto2 = new JLabel("Avaliacao: " + stringAvaliacao + "\n");
+		JLabel texto1 = new JLabel("Sinopse: " + stringSinopse + "\n");
+		JLabel texto2 = new JLabel("Avaliacao: " + stringAvaliacao + "\n");
 		JPanel imagemPanel = new JPanel();
 		JPanel textPanel = new JPanel();
 		
 		middlePanel.setLayout(new GridLayout(1, 2));
 		middlePanel.setBackground(Color.GRAY);
 
-		imagemPanel.setLayout(new FlowLayout(5));
-		textPanel.setLayout(new GridLayout(2, 1));
+		imagemPanel.setLayout(new FlowLayout(1));
+		textPanel.setLayout(new GridLayout(20, 1));
 
 		URL url = new URL("https://image.tmdb.org/t/p/original/fVzXp3NwovUlLe7fvoRynCmBPNc.jpg");
 		BufferedImage buttonIcon = ImageIO.read(url);
@@ -225,7 +225,7 @@ public class Janela extends JFrame implements ActionListener{
 		imagemPanel.add(icon1);
 
 		textPanel.add(texto1);
-		//textPanel.add(texto2);
+		textPanel.add(texto2);
 
 		middlePanel.add(imagemPanel);
 		middlePanel.add(textPanel);
