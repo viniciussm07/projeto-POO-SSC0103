@@ -15,14 +15,12 @@ public class App
     public static void main( String[] args )
     {
         TmdbMovies movies = new TmdbApi(apiKey).getMovies();
-        MovieDb movie = movies.getMovie(5353, "en");
-        System.out.println(movie.getOriginalTitle());
         MovieResultsPage popMovies = new MovieResultsPage();
-        popMovies = movies.getPopularMovies("en", 1);
+        popMovies = movies.getPopularMovies("pt-br", 1);
         List<MovieDb> lista = popMovies.getResults();
         //popMovies.
         for (MovieDb movieDb : lista) {
-            System.out.println(movieDb.getOriginalTitle());
+            System.out.println(movieDb.getTitle());
             System.out.println(baseURL + "original" + movieDb.getPosterPath());
         }
         System.out.println( "Hello World!" );
