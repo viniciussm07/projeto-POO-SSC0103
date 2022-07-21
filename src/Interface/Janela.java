@@ -130,23 +130,23 @@ public class Janela extends JFrame implements ActionListener{
 		JButton icon1 = new JButton(new ImageIcon(newImage));
 		//icon1.setBorder(BorderFactory.createEmptyBorder());
 		
-		buttonIcon = ImageIO.read(new File("./Imagens/./1984.jpg"));
+		buttonIcon = ImageIO.read(new File("../Imagens/1984.jpg"));
 		newImage = buttonIcon.getScaledInstance(340, 500, Image.SCALE_DEFAULT);
 		JButton icon2 = new JButton(new ImageIcon(newImage));
 		
-		buttonIcon = ImageIO.read(new File("./Imagens/./Magia.jpg"));
+		buttonIcon = ImageIO.read(new File("../Imagens/./Magia.jpg"));
 		newImage = buttonIcon.getScaledInstance(340, 500, Image.SCALE_DEFAULT);
 		JButton icon3 = new JButton(new ImageIcon(newImage));
 		
-		buttonIcon = ImageIO.read(new File("./Imagens/./MegaMente.jpg"));
+		buttonIcon = ImageIO.read(new File("../Imagens/./MegaMente.jpg"));
 		newImage = buttonIcon.getScaledInstance(340, 500, Image.SCALE_DEFAULT);
 		JButton icon4 = new JButton(new ImageIcon(newImage));
 		
-		buttonIcon = ImageIO.read(new File("./Imagens/./Livros.jpg"));
+		buttonIcon = ImageIO.read(new File("../Imagens/./Livros.jpg"));
 		newImage = buttonIcon.getScaledInstance(340, 500, Image.SCALE_DEFAULT);
 		JButton icon5 = new JButton(new ImageIcon(newImage));
 		
-		buttonIcon = ImageIO.read(new File("./Imagens/./Ultimato.jpg"));
+		buttonIcon = ImageIO.read(new File("../Imagens/./Ultimato.jpg"));
 		newImage = buttonIcon.getScaledInstance(340, 500, Image.SCALE_DEFAULT);
 		JButton icon6 = new JButton(new ImageIcon(newImage));
 		
@@ -236,7 +236,7 @@ public class Janela extends JFrame implements ActionListener{
 	public static void main(String[] args) throws IOException {
 		
 		Janela window = new Janela("Aplicativo Cinema");
-		window.conteudoJanela3();
+		window.conteudoJanela2();
 		window.setVisible(true);
 	}
 
