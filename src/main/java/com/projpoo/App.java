@@ -10,7 +10,7 @@ import info.movito.themoviedbapi.model.core.MovieResultsPage;
  */
 public class App 
 {
-    public static String apiKey = "2b101da85c41bf5cb1ce101ebb69b33c";
+    public static String apiKey = ApiKey.key;
     public static String baseURL = "https://image.tmdb.org/t/p/";
     public static void main( String[] args )
     {
