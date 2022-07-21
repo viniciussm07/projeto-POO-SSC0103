@@ -1,3 +1,4 @@
+package com.projpoo;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,7 +15,7 @@ public class Janela extends JFrame implements ActionListener{
 	public Janela(String titulo){
 		
 		super(titulo);
-		super.setSize(1920, 1080);
+		super.setSize(1280,720);
 	    super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   
 	    
 	}
@@ -26,7 +27,7 @@ public class Janela extends JFrame implements ActionListener{
 	    JLabel label1 = new JLabel("Seja Bem-vindo");
 	    JLabel label2 = new JLabel("Gostaria de assistir algo?");
 	    JLabel espaco = new JLabel("                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ");
-	    JButton buttonOK = new JButton("Vamos lá!");
+	    JButton buttonOK = new JButton("Vamos la!");
 	    JButton buttonHome = new JButton("HOME");
 	    JButton buttonBack = new JButton("Voltar");
 	    
@@ -50,7 +51,7 @@ public class Janela extends JFrame implements ActionListener{
 	    buttonHome.addActionListener(this);
 	    buttonBack.addActionListener(this);
 	    
-	    //Conteúdo do meio.
+	    //Conteudo do meio.
 	    
 	    JPanel meio = new JPanel();
 	    JPanel meio1 = new JPanel();
@@ -120,7 +121,7 @@ public class Janela extends JFrame implements ActionListener{
 		fileira1.setBackground(Color.GRAY);
 		
 		JScrollPane scrollHorizontal1 = new JScrollPane(fileira1);
-		scrollHorizontal1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollHorizontal1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		
 		//Imagens
 		
@@ -130,23 +131,23 @@ public class Janela extends JFrame implements ActionListener{
 		JButton icon1 = new JButton(new ImageIcon(newImage));
 		//icon1.setBorder(BorderFactory.createEmptyBorder());
 		
-		buttonIcon = ImageIO.read(new File("src/Imagens/1984.jpg"));
+		buttonIcon = ImageIO.read(new File("Imagens/1984.jpg"));
 		newImage = buttonIcon.getScaledInstance(340, 500, Image.SCALE_DEFAULT);
 		JButton icon2 = new JButton(new ImageIcon(newImage));
 		
-		buttonIcon = ImageIO.read(new File("src/Imagens/Magia.jpg"));
+		buttonIcon = ImageIO.read(new File("Imagens/./Magia.jpg"));
 		newImage = buttonIcon.getScaledInstance(340, 500, Image.SCALE_DEFAULT);
 		JButton icon3 = new JButton(new ImageIcon(newImage));
 		
-		buttonIcon = ImageIO.read(new File("src/Imagens/MegaMente.jpg"));
+		buttonIcon = ImageIO.read(new File("Imagens/./MegaMente.jpg"));
 		newImage = buttonIcon.getScaledInstance(340, 500, Image.SCALE_DEFAULT);
 		JButton icon4 = new JButton(new ImageIcon(newImage));
 		
-		buttonIcon = ImageIO.read(new File("src/Imagens/Livros.jpg"));
+		buttonIcon = ImageIO.read(new File("Imagens/./Livros.jpg"));
 		newImage = buttonIcon.getScaledInstance(340, 500, Image.SCALE_DEFAULT);
 		JButton icon5 = new JButton(new ImageIcon(newImage));
 		
-		buttonIcon = ImageIO.read(new File("src/Imagens/Livros.jpg"));
+		buttonIcon = ImageIO.read(new File("Imagens/./Ultimato.jpg"));
 		newImage = buttonIcon.getScaledInstance(340, 500, Image.SCALE_DEFAULT);
 		JButton icon6 = new JButton(new ImageIcon(newImage));
 		
@@ -163,6 +164,7 @@ public class Janela extends JFrame implements ActionListener{
 		JScrollPane scrollVertical = new JScrollPane(middlePanel);
 		
 		scrollVertical.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		//scrollVertical.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		
 		jp.add(scrollVertical);
 		
@@ -170,6 +172,66 @@ public class Janela extends JFrame implements ActionListener{
 		//JTextArea display = new JTextArea(16, 160);
 		//display.setEditable(true); // set textArea non-editable
 
+	}
+
+	public void conteudoJanela3() throws IOException {
+
+		//TELA 3
+
+		JButton buttonHome = new JButton("HOME");
+	    JButton buttonBack = new JButton("Voltar");
+	    JLabel espaco = new JLabel("                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ");
+			
+		JPanel jp = (JPanel) this.getContentPane();
+	    jp.setLayout(new BorderLayout(8, 6));
+	    jp.setBackground(Color.GRAY);
+	    
+	    this.getRootPane().setBorder(BorderFactory.createMatteBorder(7, 7, 7, 7, Color.BLACK));
+
+		//Barra de cima.
+	    
+	    JPanel barra = new JPanel();
+	    barra.setBackground(Color.WHITE);
+	    barra.setLayout(new FlowLayout(5));
+	    
+	    barra.add(buttonHome);
+	    barra.add(espaco);
+	    barra.add(buttonBack);
+	    jp.add(barra, BorderLayout.NORTH);
+	   
+	    buttonHome.addActionListener(this);
+	    buttonBack.addActionListener(this);
+
+		//Painel do meio
+		String stringSinopse = " ";
+		String stringAvaliacao = " ";
+
+		JPanel middlePanel = new JPanel();
+		JLabel texto1 = new JLabel("Sinopse: " + stringSinopse + "\n");
+		JLabel texto2 = new JLabel("Avaliacao: " + stringAvaliacao + "\n");
+		JPanel imagemPanel = new JPanel();
+		JPanel textPanel = new JPanel();
+		
+		middlePanel.setLayout(new GridLayout(1, 2));
+		middlePanel.setBackground(Color.GRAY);
+
+		imagemPanel.setLayout(new FlowLayout(1));
+		textPanel.setLayout(new GridLayout(20, 1));
+
+		URL url = new URL("https://image.tmdb.org/t/p/original/fVzXp3NwovUlLe7fvoRynCmBPNc.jpg");
+		BufferedImage buttonIcon = ImageIO.read(url);
+		Image newImage = buttonIcon.getScaledInstance(510, 750, Image.SCALE_DEFAULT);
+		JButton icon1 = new JButton(new ImageIcon(newImage));
+
+		imagemPanel.add(icon1);
+
+		textPanel.add(texto1);
+		textPanel.add(texto2);
+
+		middlePanel.add(imagemPanel);
+		middlePanel.add(textPanel);
+
+		jp.add(middlePanel);
 	}
 
 	public static void main(String[] args) throws IOException {
