@@ -9,7 +9,7 @@ import info.movito.themoviedbapi.model.core.MovieResultsPage;
 
 public class Busca {
 
-    static String apiKey = "2b101da85c41bf5cb1ce101ebb69b33c";
+    static String apiKey = ApiKey.key;
 
     public static List<MovieDb> filme(String nomeFilme) {
         TmdbSearch buscador = new TmdbSearch(new TmdbApi(apiKey));
