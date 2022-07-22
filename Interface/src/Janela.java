@@ -11,15 +11,21 @@ import javax.swing.*;
 
 public class Janela extends JFrame implements ActionListener{
 
+	static Janela window1;
+	static Janela window2;
+	static Janela window3;
+
 	public Janela(String titulo){
 		
 		super(titulo);
-		super.setSize(1280,720);
+		//super.setSize(1280,720);
+		super.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+        super.setUndecorated(true);
 	    super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   
 	    
 	}
 	
-	public void conteudoJanela1() {
+	public void conteudoJanela1() throws IOException{
 		
 		//TELA 1
 	    
@@ -28,7 +34,7 @@ public class Janela extends JFrame implements ActionListener{
 	    JLabel espaco = new JLabel("                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ");
 	    JButton buttonOK = new JButton("Vamos la!");
 	    JButton buttonHome = new JButton("HOME");
-	    JButton buttonBack = new JButton("Voltar");
+	    JButton buttonBack = new JButton("Sair");
 	    
 	    JPanel jp = (JPanel) this.getContentPane();
 	    jp.setLayout(new BorderLayout(8, 6));
@@ -48,7 +54,9 @@ public class Janela extends JFrame implements ActionListener{
 	    jp.add(barra, BorderLayout.NORTH);
 	   
 	    buttonHome.addActionListener(this);
+		buttonHome.setActionCommand("home");
 	    buttonBack.addActionListener(this);
+		buttonBack.setActionCommand("exit");
 	    
 	    //Conteudo do meio.
 	    
@@ -74,7 +82,10 @@ public class Janela extends JFrame implements ActionListener{
 	    
 	    jp.add(meio, BorderLayout.CENTER);
 	    
+		window2.conteudoJanela2();
+
 	    buttonOK.addActionListener(this);
+		buttonOK.setActionCommand("goPage2");
 		
 	}
 	
@@ -83,7 +94,7 @@ public class Janela extends JFrame implements ActionListener{
 		//TELA 2
 		
 		JButton buttonHome = new JButton("HOME");
-	    JButton buttonBack = new JButton("Voltar");
+	    JButton buttonBack = new JButton("Sair");
 	    JLabel espaco = new JLabel("                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ");
 			
 		JPanel jp = (JPanel) this.getContentPane();
@@ -104,61 +115,54 @@ public class Janela extends JFrame implements ActionListener{
 	    jp.add(barra, BorderLayout.NORTH);
 	   
 	    buttonHome.addActionListener(this);
+		buttonHome.setActionCommand("home");
 	    buttonBack.addActionListener(this);
+		buttonBack.setActionCommand("exit");
 	    
 	    //Scroll
+
+		int numFilmes = 5, numFileiras = 2;
 	    
 		JPanel middlePanel = new JPanel();
 		
-		//JLabel recomendado = new JLabel("Recomendado");
-		
-		middlePanel.setLayout(new GridLayout(4, 1));
+		middlePanel.setLayout(new GridLayout(numFileiras, 1));
 		middlePanel.setBackground(Color.GRAY);
 		
-		JPanel fileira1 = new JPanel();
-		fileira1.setLayout(new FlowLayout(5));
-		fileira1.setBackground(Color.GRAY);
-		
-		JScrollPane scrollHorizontal1 = new JScrollPane(fileira1);
-		scrollHorizontal1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		
 		//Imagens
-		
-		URL url = new URL("https://image.tmdb.org/t/p/original/fVzXp3NwovUlLe7fvoRynCmBPNc.jpg");
-		BufferedImage buttonIcon = ImageIO.read(url);
-		Image newImage = buttonIcon.getScaledInstance(340, 500, Image.SCALE_DEFAULT);
-		JButton icon1 = new JButton(new ImageIcon(newImage));
-		//icon1.setBorder(BorderFactory.createEmptyBorder());
-		
-		buttonIcon = ImageIO.read(new File("./Imagens/./1984.jpg"));
-		newImage = buttonIcon.getScaledInstance(340, 500, Image.SCALE_DEFAULT);
-		JButton icon2 = new JButton(new ImageIcon(newImage));
-		
-		buttonIcon = ImageIO.read(new File("./Imagens/./Magia.jpg"));
-		newImage = buttonIcon.getScaledInstance(340, 500, Image.SCALE_DEFAULT);
-		JButton icon3 = new JButton(new ImageIcon(newImage));
-		
-		buttonIcon = ImageIO.read(new File("./Imagens/./MegaMente.jpg"));
-		newImage = buttonIcon.getScaledInstance(340, 500, Image.SCALE_DEFAULT);
-		JButton icon4 = new JButton(new ImageIcon(newImage));
-		
-		buttonIcon = ImageIO.read(new File("./Imagens/./Livros.jpg"));
-		newImage = buttonIcon.getScaledInstance(340, 500, Image.SCALE_DEFAULT);
-		JButton icon5 = new JButton(new ImageIcon(newImage));
-		
-		buttonIcon = ImageIO.read(new File("./Imagens/./Ultimato.jpg"));
-		newImage = buttonIcon.getScaledInstance(340, 500, Image.SCALE_DEFAULT);
-		JButton icon6 = new JButton(new ImageIcon(newImage));
-		
-		fileira1.add(icon1);
-		fileira1.add(icon2);
-		fileira1.add(icon3);
-		fileira1.add(icon4);
-		fileira1.add(icon5);
-		fileira1.add(icon6);
-		
-		//middlePanel.add(recomendado);
-		middlePanel.add(scrollHorizontal1);
+
+		JButton[][] vetorBotao = new JButton[numFileiras][numFilmes];
+		JPanel[] vetorFileira = new JPanel[numFileiras];
+		JScrollPane[] scrollHorizontal = new JScrollPane[numFileiras];
+
+		for(int outroContador = 0; outroContador<numFileiras; outroContador++){
+
+			vetorFileira[outroContador] = new JPanel();
+			vetorFileira[outroContador].setLayout(new FlowLayout(5));
+			vetorFileira[outroContador].setBackground(Color.GRAY);
+			
+			scrollHorizontal[outroContador] = new JScrollPane(vetorFileira[outroContador]);
+			scrollHorizontal[outroContador].setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+			
+			for(int contador=0; contador<numFilmes; contador++){
+
+				String stringURL = "https://image.tmdb.org/t/p/original/boIgXXUhw5O3oVkhXsE6SJZkmYo.jpg";
+
+				URL url = new URL(stringURL);
+				BufferedImage buttonIcon = ImageIO.read(url);
+				Image newImage = buttonIcon.getScaledInstance(340, 500, Image.SCALE_DEFAULT);
+				vetorBotao[outroContador][contador] = new JButton(new ImageIcon(newImage));
+
+				vetorFileira[outroContador].add(vetorBotao[outroContador][contador]);
+
+				vetorBotao[outroContador][contador].addActionListener(this);
+				vetorBotao[outroContador][contador].setActionCommand(stringURL);
+				//System.out.println(contador);
+			}
+
+			middlePanel.add(vetorFileira[outroContador]);
+
+			//System.out.println(outroContador);
+		}
 		
 		JScrollPane scrollVertical = new JScrollPane(middlePanel);
 		
@@ -166,19 +170,15 @@ public class Janela extends JFrame implements ActionListener{
 		//scrollVertical.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		
 		jp.add(scrollVertical);
-		
-		//jp.add(middlePanel, BorderLayout.CENTER);
-		//JTextArea display = new JTextArea(16, 160);
-		//display.setEditable(true); // set textArea non-editable
 
 	}
 
-	public void conteudoJanela3() throws IOException {
+	public void conteudoJanela3(String stringURL) throws IOException {
 
 		//TELA 3
 
 		JButton buttonHome = new JButton("HOME");
-	    JButton buttonBack = new JButton("Voltar");
+	    JButton buttonBack = new JButton("Sair");
 	    JLabel espaco = new JLabel("                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ");
 			
 		JPanel jp = (JPanel) this.getContentPane();
@@ -199,11 +199,13 @@ public class Janela extends JFrame implements ActionListener{
 	    jp.add(barra, BorderLayout.NORTH);
 	   
 	    buttonHome.addActionListener(this);
+		buttonHome.setActionCommand("home");
 	    buttonBack.addActionListener(this);
+		buttonBack.setActionCommand("exit");
 
 		//Painel do meio
-		String stringSinopse = " ";
-		String stringAvaliacao = " ";
+		String stringSinopse = "";
+		String stringAvaliacao = "";
 
 		JPanel middlePanel = new JPanel();
 		JLabel texto1 = new JLabel("Sinopse: " + stringSinopse + "\n");
@@ -217,7 +219,9 @@ public class Janela extends JFrame implements ActionListener{
 		imagemPanel.setLayout(new FlowLayout(1));
 		textPanel.setLayout(new GridLayout(20, 1));
 
-		URL url = new URL("https://image.tmdb.org/t/p/original/fVzXp3NwovUlLe7fvoRynCmBPNc.jpg");
+		//String stringURL = "https://image.tmdb.org/t/p/original/boIgXXUhw5O3oVkhXsE6SJZkmYo.jpg";
+
+		URL url = new URL(stringURL);
 		BufferedImage buttonIcon = ImageIO.read(url);
 		Image newImage = buttonIcon.getScaledInstance(510, 750, Image.SCALE_DEFAULT);
 		JButton icon1 = new JButton(new ImageIcon(newImage));
@@ -233,16 +237,60 @@ public class Janela extends JFrame implements ActionListener{
 		jp.add(middlePanel);
 	}
 
-	public static void main(String[] args) throws IOException {
-		
-		Janela window = new Janela("Aplicativo Cinema");
-		window.conteudoJanela3();
-		window.setVisible(true);
-	}
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
+		if ("home".equals(e.getActionCommand())) {
+			
+			window1.setVisible(true);
+
+			window3.setVisible(false);
+			window2.setVisible(false);
+
+		}
+
+		else if ("goPage2".equals(e.getActionCommand())){
+
+			window2.setVisible(true);
+
+			window1.setVisible(false);
+			window3.setVisible(false);
+		}
+
+		else if ("exit".equals(e.getActionCommand())){
+
+			window1.dispose();
+			window2.dispose();
+			window3.dispose();
+		}
 		
+		else {
+
+			String stringURL = e.getActionCommand();
+
+			try{
+
+				window3.conteudoJanela3(stringURL);
+
+			} catch(IOException ex){
+
+				ex.printStackTrace();
+			}
+			window3.setVisible(true);
+
+			window1.setVisible(false);
+			window2.setVisible(false);
+		}
+	}
+
+	public static void main(String[] args) throws IOException {
+		
+		window1 = new Janela("Aplicativo Cinema - Janela1");
+		window2 = new Janela("Aplicativo Cinema - Janela2");
+		window3 = new Janela("Aplicativo Cinema - Janela3");
+
+		window1.conteudoJanela1();
+		window1.setVisible(true);
+
 	}
 }
