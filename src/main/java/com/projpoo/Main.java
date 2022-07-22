@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 public class Main extends Application{
 
     Stage window;
-    Scene scene1, scene2;
+    Scene login, home;
 
     public static void main(String[] args) {
         launch(args);
@@ -19,12 +19,21 @@ public class Main extends Application{
     public void start(Stage primaryStage) throws Exception {
         window = primaryStage;
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("loginLayout.fxml"));
-        Parent root = fxmlLoader.load();
-        Scene tela = new Scene(root);
+        // Carrega telas
+        FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("views/loginLayout.fxml"));
+        Parent root = loginLoader.load();
+        Scene login = new Scene(root);
 
-        primaryStage.setTitle("Testando JavaFx");
-        primaryStage.setScene(tela);
-        primaryStage.show();
+        window.setTitle("Login");
+        window.setScene(login);
+        window.show();
     }
+
+    // public static void changeToHome() throws IOException{
+    //     FXMLLoader homeLoader = new FXMLLoader(getClass().getResource("homeLayout.fxml"));
+    //     Parent teste = homeLoader.load();
+    //     Scene home = new Scene(teste);
+
+    //     window.setScene(home);
+    // }
 }
