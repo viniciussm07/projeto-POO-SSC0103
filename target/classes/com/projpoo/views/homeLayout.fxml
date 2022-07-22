@@ -49,7 +49,7 @@
             <ToolBar prefHeight="40.0" prefWidth="640.0" style="-fx-background-color: #373737;" AnchorPane.bottomAnchor="467.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <items>
                 <Button fx:id="botaoHome" mnemonicParsing="false" text="Home" />
-                  <Button fx:id="botaoVoltar" mnemonicParsing="false" text="Minha Lista" />
+                  <Button fx:id="botaoMinhaLista" mnemonicParsing="false" onAction="#switchToMinhaLista" text="Minha Lista" />
                </items>
             </ToolBar>
             <HBox layoutX="7.0" layoutY="94.0" prefHeight="164.0" prefWidth="640.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">

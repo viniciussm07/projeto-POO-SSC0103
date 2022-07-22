@@ -20,7 +20,7 @@ public class Main extends Application{
             Parent root = FXMLLoader.load(getClass().getResource("views/loginLayout.fxml"));
             Scene login = new Scene(root);
     
-            stage.setTitle("Login");
+            stage.setTitle("Cine List");
             stage.setScene(login);
             stage.show();
         } catch (Exception e) {

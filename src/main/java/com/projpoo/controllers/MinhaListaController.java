@@ -12,7 +12,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
-public class HomeController {
+public class MinhaListaController {
 
     @FXML
     private Button botaoHome;
@@ -20,12 +20,11 @@ public class HomeController {
     @FXML
     private Button botaoMinhaLista;
 
-    public void switchToMinhaLista(ActionEvent event) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("../views/minhaListaLayout.fxml"));
+    public void switchToHome(ActionEvent event) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("../views/homeLayout.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-
 }

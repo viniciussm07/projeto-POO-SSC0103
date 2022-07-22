@@ -42,14 +42,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="507.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projpoo.controllers.HomeController">
+<VBox prefHeight="507.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projpoo.controllers.MinhaListaController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="640.0" style="-fx-background-color: #8F8F8F;" VBox.vgrow="ALWAYS">
          <children>
             <ToolBar prefHeight="40.0" prefWidth="640.0" style="-fx-background-color: #373737;" AnchorPane.bottomAnchor="467.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <items>
-                <Button fx:id="botaoHome" mnemonicParsing="false" text="Home" />
-                  <Button fx:id="botaoVoltar" mnemonicParsing="false" text="Minha Lista" />
+                <Button fx:id="botaoHome" mnemonicParsing="false" onAction="#switchToHome" text="Home" />
+                  <Button fx:id="botaoMinhaLista" mnemonicParsing="false" text="Minha Lista" />
                </items>
             </ToolBar>
             <HBox layoutX="7.0" layoutY="94.0" prefHeight="164.0" prefWidth="640.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
