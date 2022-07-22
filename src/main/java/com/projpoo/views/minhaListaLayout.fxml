@@ -61,7 +61,7 @@
                   </Pane>
                </children>
             </HBox>
-            <Label layoutX="14.0" layoutY="59.0" text="Recomendados">
+            <Label layoutX="14.0" layoutY="59.0" text="Minha Lista">
                <font>
                   <Font size="24.0" />
                </font>
