@@ -8,25 +8,24 @@ import javafx.stage.Stage;
 
 public class Main extends Application{
 
-    Stage window;
-    Scene login, home;
-
     public static void main(String[] args) {
         launch(args);
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        window = primaryStage;
+    public void start(Stage stage) throws Exception {
 
-        // Carrega telas
-        FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("views/loginLayout.fxml"));
-        Parent root = loginLoader.load();
-        Scene login = new Scene(root);
-
-        window.setTitle("Login");
-        window.setScene(login);
-        window.show();
+        try {
+            // Carrega telas
+            Parent root = FXMLLoader.load(getClass().getResource("views/loginLayout.fxml"));
+            Scene login = new Scene(root);
+    
+            stage.setTitle("Login");
+            stage.setScene(login);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     // public static void changeToHome() throws IOException{
