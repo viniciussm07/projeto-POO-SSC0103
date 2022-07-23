@@ -37,19 +37,18 @@ public class HomeController {
     }
 
     @FXML
-    void plusPane(ActionEvent event) {
+    void add(ActionEvent event) {
         Pane pane1 = new Pane();
         pane1.setStyle("-fx-background-color: #000000;");
         pane1.setPrefHeight(164.0);
         pane1.setPrefWidth(121.0);
-        
+
         Pane pane2 = new Pane();
         pane2.setStyle("-fx-background-color: #ffffff;");
         hboxFilms.getChildren().addAll(pane1, pane2);
         // prefHeight="164.0" prefWidth="121.0" style="-fx-background-color: #D9D9D9;
         System.out.println(hboxFilms.getChildren());
     }
-
 
 
 }

@@ -43,12 +43,12 @@
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: black;">
-        <items>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" text="Home" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" text="MInha Lista" />
-        </items>
-      </ToolBar>
+    <ToolBar prefHeight="40.0" prefWidth="640.0" style="-fx-background-color: #373737;" AnchorPane.bottomAnchor="467.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <items>
+       <Button fx:id="botaoHome" mnemonicParsing="false" text="Home" />
+         <Button fx:id="botaoMinhaLista" mnemonicParsing="false" onAction="#switchToMinhaLista" text="Minha Lista" />
+      </items>
+    </ToolBar>
       <FlowPane prefHeight="35.0" prefWidth="642.0" />
       <AnchorPane prefHeight="411.0" prefWidth="640.0">
          <children>
