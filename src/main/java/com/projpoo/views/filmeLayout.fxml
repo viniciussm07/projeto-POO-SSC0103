@@ -52,9 +52,9 @@
       <FlowPane prefHeight="35.0" prefWidth="642.0" />
       <AnchorPane prefHeight="411.0" prefWidth="640.0">
          <children>
+            <ImageView fitHeight="250.0" fitWidth="170.0" layoutX="37.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
             <Text layoutX="228.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Direção:" wrappingWidth="195.13671875" />
             <Text layoutX="228.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sinopse:" wrappingWidth="195.13671875" />
-            <ImageView fitHeight="250.0" fitWidth="170.0" layoutX="37.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
             <Text layoutX="228.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Crítica:" wrappingWidth="195.13671875" />
             <Label layoutX="275.0" layoutY="60.0" text="Label" />
             <Label layoutX="275.0" layoutY="101.0" text="Label" />

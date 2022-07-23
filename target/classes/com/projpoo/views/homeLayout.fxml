@@ -32,21 +32,24 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <VBox prefHeight="507.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projpoo.controllers.HomeController">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="640.0" style="-fx-background-color: #8F8F8F;" VBox.vgrow="ALWAYS">
+    <AnchorPane fx:id="anchorRoot" maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="640.0" style="-fx-background-color: #8F8F8F;" VBox.vgrow="ALWAYS">
          <children>
-            <ToolBar prefHeight="40.0" prefWidth="640.0" style="-fx-background-color: #373737;" AnchorPane.bottomAnchor="467.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <ToolBar prefHeight="40.0" prefWidth="640.0" style="-fx-background-color: #373737; -fx-max-height: 40;" AnchorPane.bottomAnchor="467.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <items>
-                <Button fx:id="botaoHome" mnemonicParsing="false" text="Home" />
                   <Button fx:id="botaoMinhaLista" mnemonicParsing="false" onAction="#switchToMinhaLista" text="Minha Lista" />
+                  <Button fx:id="carregaFilmes" mnemonicParsing="false" onAction="#adding" text="Carregar Filmes" />
                </items>
             </ToolBar>
             <Label layoutX="14.0" layoutY="59.0" text="Recomendados">
@@ -54,6 +57,15 @@
                   <Font size="24.0" />
                </font>
             </Label>
+            <HBox layoutY="94.0" prefHeight="180.0" prefWidth="640.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <Pane prefHeight="180.0" prefWidth="135.0">
+                     <HBox.margin>
+                        <Insets left="25.0" right="25.0" />
+                     </HBox.margin>
+                  </Pane>
+               </children>
+            </HBox>
          </children>
     </AnchorPane>
   </children>
