@@ -9,7 +9,16 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
+import java.util.List;
 
+import com.projpoo.ApiKey;
+import com.projpoo.Busca;
+import com.projpoo.Filme;
+
+import info.movito.themoviedbapi.TmdbApi;
+import info.movito.themoviedbapi.TmdbMovies;
+import info.movito.themoviedbapi.model.MovieDb;
+import info.movito.themoviedbapi.model.core.MovieResultsPage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -87,5 +96,33 @@ public class HomeController {
 
         return hbox;
     }
+
+    // Carregar filmes
+    public static String apiKey = ApiKey.key;
+    public static String baseURL = "https://image.tmdb.org/t/p/";
+
+    Filme[] getFilme(ActionEvent e) {
+
+        Filme[] vetorFilme = new Filme[20];
+        int contador = 0;
+
+        TmdbApi apiObj = new TmdbApi(apiKey);
+        TmdbMovies movies = apiObj.getMovies();
+
+        MovieResultsPage popMovies = new MovieResultsPage();
+        popMovies = movies.getPopularMovies("pt-br", 1);
+
+        List<MovieDb> lista = popMovies.getResults();
+
+        for (MovieDb movieDb : lista) {
+            
+            vetorFilme[contador] = new Filme(movieDb.getTitle(), baseURL + "original" + movieDb.getPosterPath(), movieDb.getReleaseDate(), movieDb.getOverview());
+            contador++;
+            //System.out.println(baseURL + "original" + movieDb.getPosterPath());
+        }
+
+        return vetorFilme;
+    }
+
 
 }
