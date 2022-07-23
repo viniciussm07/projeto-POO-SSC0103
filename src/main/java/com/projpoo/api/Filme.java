@@ -1,4 +1,4 @@
-package com.projpoo;
+package com.projpoo.api;
 
 public class Filme{
 

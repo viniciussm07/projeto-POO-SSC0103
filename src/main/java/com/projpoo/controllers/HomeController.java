@@ -2,8 +2,6 @@ package com.projpoo.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -12,8 +10,7 @@ import java.io.IOException;
 import java.util.List;
 
 import com.projpoo.ApiKey;
-import com.projpoo.Busca;
-import com.projpoo.Filme;
+import com.projpoo.api.Filme;
 
 import info.movito.themoviedbapi.TmdbApi;
 import info.movito.themoviedbapi.TmdbMovies;
@@ -50,36 +47,62 @@ public class HomeController {
         stage.show();
     }
 
-    @FXML
-    void adding(ActionEvent event) {
-        HBox hbox = addHbox();
-        Pane pane = createPane();
-        hbox.getChildren().addAll(pane);
-        anchorRoot.getChildren().addAll(hbox);
+    public void loopAdd(HBox hbox, Filme[] listafilmes, int i) {
+        Pane pane;
+        do {
+            System.out.println("primeiro loop" + i);
+            pane = createPane(listafilmes[i].URL);
+            if (i % 4 == 0 && i != 0) {
+                hbox = createHbox();
+                if (i != 0) {
+                    anchorRoot.getChildren().addAll(hbox);
+                }
+            } else {
+                hbox.getChildren().addAll(pane);
+            }
+            i++;
+        } while (i % 4 != 3);
     }
 
-    // @FXML
-    // ImageView addFilmImage() {
-    //     ImageView filmImage = new ImageView();
-    //     filmImage.setFitHeight(164.0);
-    //     filmImage.setFitWidth(121.0);
-    //     filmImage.setPickOnBounds(true);
-    //     filmImage.setPreserveRatio(true);
-    //     // altrerar a linha de baixo e adicionar a função para puxar a imagem da api
-    //     Image img = new Image(
-    //             "https://disney.com.br/novidades/quando-doutor-estranho-no-multiverso-da-loucura-estreia-no-disney-plus");
+    @FXML
+    void adding(ActionEvent event) {
+        HBox hbox1 = createHbox();
+        HBox hbox2 = createHbox();
+        HBox hbox3 = createHbox();
+        HBox hbox4 = createHbox();
+        HBox hbox5 = createHbox();
 
-    //     filmImage.setImage(img);
+        Filme[] listaFilmes = getFilme();
 
-    //     System.out.println("testando");
+        for (int i = 0; i < listaFilmes.length; i += 4) {
+            switch (i) {
+                case 0:
+                    loopAdd(hbox1, listaFilmes, i);
+                    break;
+                case 4:
+                    loopAdd(hbox2, listaFilmes, i);
+                    break;
+                case 8:
+                    loopAdd(hbox3, listaFilmes, i);
+                    break;
+                case 12:
+                    loopAdd(hbox4, listaFilmes, i);
+                    break;
+                case 16:
+                    loopAdd(hbox5, listaFilmes, i);
+                    break;
+                default:
+                    break;
+            }
+        }
 
-    //     return filmImage;
-    // }
+    }
 
     @FXML
-    Pane createPane() {
+    Pane createPane(String imagem) {
         Pane pane1 = new Pane();
-        pane1.setStyle("-fx-background-image: url('https://lumiere-a.akamaihd.net/v1/images/beta_epic_payoff_brazil_2a5f625f.jpeg');-fx-background-repeat: no-repeat;-fx-background-size: 174 166;-fx-background-position: center center;");
+        pane1.setStyle("-fx-background-image: url(" + imagem
+                + ");-fx-background-repeat: no-repeat;-fx-background-size: 174 166;-fx-background-position: center center;");
         HBox.setMargin(pane1, new Insets(0, 25, 0, 25));
         pane1.setPrefWidth(135.0);
 
@@ -87,7 +110,7 @@ public class HomeController {
     }
 
     @FXML
-    HBox addHbox() {
+    HBox createHbox() {
         HBox hbox = new HBox();
         hbox.setLayoutY(94.0);
         hbox.setPrefSize(640.0, 166.0);
@@ -101,7 +124,7 @@ public class HomeController {
     public static String apiKey = ApiKey.key;
     public static String baseURL = "https://image.tmdb.org/t/p/";
 
-    Filme[] getFilme(ActionEvent e) {
+    Filme[] getFilme() {
 
         Filme[] vetorFilme = new Filme[20];
         int contador = 0;
@@ -115,14 +138,14 @@ public class HomeController {
         List<MovieDb> lista = popMovies.getResults();
 
         for (MovieDb movieDb : lista) {
-            
-            vetorFilme[contador] = new Filme(movieDb.getTitle(), baseURL + "original" + movieDb.getPosterPath(), movieDb.getReleaseDate(), movieDb.getOverview());
+
+            vetorFilme[contador] = new Filme(movieDb.getTitle(), baseURL + "original" + movieDb.getPosterPath(),
+                    movieDb.getReleaseDate(), movieDb.getOverview());
             contador++;
-            //System.out.println(baseURL + "original" + movieDb.getPosterPath());
+            // System.out.println(baseURL + "original" + movieDb.getPosterPath());
         }
 
         return vetorFilme;
     }
-
 
 }
